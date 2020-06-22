@@ -1,0 +1,33 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: system
+    pipeline_stages:
+    - match:
+        selector: '{filename="/var/log/system.log"}'
+        stages:
+        - regex:
+            expression: '^(?P<timestamp>[A-Za-z]{3}\s\d{2}\s[\d:]*)\s(?P<hostname>[a-zA-Z]+)\s(?P<processname>[\w\.]+)\[\d+\][:\s]*(?P<output>\S.*)'
+        - timestamp:
+            format: "Jan 02 15:04:05"
+            source: timestamp
+        - labels:
+            hostname:
+            processname:
+        - output:
+            source: output
+
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: varlogs
+          __path__: /var/log/*log

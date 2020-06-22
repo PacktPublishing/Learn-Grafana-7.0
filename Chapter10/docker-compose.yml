@@ -1,0 +1,61 @@
+version: "3"
+
+networks:
+  loki:
+
+services:
+  loki:
+    image: "grafana/loki:${LOKI_TAG-latest}"
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - loki
+    volumes:
+      - "${PWD-.}/loki:/loki"
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://host.docker.internal:3100/loki/api/v1/push"
+
+  promtail:
+    image: "grafana/promtail:${PROMT_TAG-latest}"
+    ports:
+      - "9080:9080"
+    volumes:
+      - /private/var/log:/var/log
+      - "${PWD-.}/promtail:/etc/promtail"
+    command: -config.file=/etc/promtail/docker-config.yaml
+    networks:
+      - loki
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://host.docker.internal:3100/loki/api/v1/push"
+
+  prometheus:
+    image: "prom/prometheus:${PROM_TAG-latest}"
+    ports:
+      - "9090:9090"
+    volumes:
+      - "${PWD-.}/prometheus:/etc/prometheus"
+    command: --config.file=/etc/prometheus/prometheus.yaml
+    networks:
+      - loki
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://host.docker.internal:3100/loki/api/v1/push"
+
+  grafana:
+    image: "grafana/grafana:${GRAF_TAG-latest}"
+    ports:
+      - "3000:3000"
+    volumes:
+      - "${PWD-.}/grafana:/var/lib/grafana"
+    networks:
+      - loki
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://host.docker.internal:3100/loki/api/v1/push"
