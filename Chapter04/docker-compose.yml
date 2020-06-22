@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  grafana:
+    image: "grafana/grafana:${GRAF_TAG-latest}"
+    ports:
+      - "3000:3000"
+    volumes:
+      - "${PWD-.}/grafana:/var/lib/grafana"
+
+  prometheus:
+    image: "prom/prometheus:${PROM_TAG-latest}"
+    ports:
+      - "9090:9090"
+    volumes:
+      - "${PWD-.}/prometheus:/etc/prometheus"

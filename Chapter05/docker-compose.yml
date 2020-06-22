@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  grafana:
+    image: "grafana/grafana:${GRAF_TAG-latest}"
+    ports:
+      - "3000:3000"
+    volumes:
+      - "${PWD-.}/grafana:/var/lib/grafana"
+
+  influxdb:
+    image: "influxdb:${INFL_TAG-latest}"
+    ports:
+      - "8086:8086"
+    volumes:
+      - "${PWD-.}/influxdb:/var/lib/influxdb"
+
