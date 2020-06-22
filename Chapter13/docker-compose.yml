@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  ldap:
+    image: osixia/openldap
+    ports:
+      - "389:389"
+    environment:
+      LDAP_ORGANISATION: "My Grafana Company"
+      LDAP_DOMAIN: "grafana.org"
+    volumes:
+      - "${PWD-.}/ldap:/var/lib/ldap"
+      - "${PWD-.}/slapd.d:/etc/ldap/slapd.d"
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      GF_PATHS_CONFIG: "/etc/grafana/grafana.ini"
+    volumes:
+      - "${PWD-.}/grafana/data:/var/lib/grafana"
+      - "${PWD-.}/grafana/etc:/etc/grafana"
+    depends_on:
+      - ldap

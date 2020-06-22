@@ -1,0 +1,14 @@
+dn: cn=myuser,dc=grafana,dc=org
+changetype: add
+givenName: My
+sn: User
+cn: myuser
+uid: cn
+uidNumber: 14583102
+gidNumber: 14564100
+homeDirectory: /home/myuser
+objectClass: top
+objectClass: posixAccount
+objectClass: inetOrgPerson
+userPassword: {SHA}kd/Z3bQZiv/FwZTNjObTOP3kcOI=
+mail: myuser@grafana.org
