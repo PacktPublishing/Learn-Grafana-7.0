@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  grafana:
+    image: "grafana/grafana:${TAG-latest}"
+    ports:
+      - "3000:3000"
+    environment:
+      GF_USERS_ALLOW_SIGN_UP: "true"
+    volumes:
+      - "${PWD-.}/grafana:/var/lib/grafana"
