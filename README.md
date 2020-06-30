@@ -38,7 +38,7 @@ With the following software and hardware list you can run all code files present
 
 | Software required                   | OS required                        |
 | ------------------------------------| -----------------------------------|
-| Grafana                             | Windows 10 Pro, Linux, Docker |
+| Grafana                             | Windows 10 Pro, Linux, Docker      |
 | Docker                              | Windows 10 Pro, or Linux |
 | Loki/Promtail	                      | Runs in Docker
 | Prometheus                          | Runs in Docker |
