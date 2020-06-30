@@ -1,3 +1,4 @@
+# Learn Grafana 7.0
 
 <a href="https://www.packtpub.com/eu/data/learn-grafana-7-0?utm_source=github&utm_medium=repository&utm_campaign=9781838826581"><img src="https://www.packtpub.com/media/catalog/product/cache/bf3310292d6e1b4ca15aeea773aca35e/9/7/9781838826581-original_36.jpeg" alt="Learn Grafana 7.0" height="256px" align="right"></a>Learn Grafana 7.0
 
