@@ -1,6 +1,6 @@
-# Book Name
+# Learn Grafana 7.0
 
-<a href="https://www.packtpub.com/eu/data/learn-grafana-7-0?utm_source=github&utm_medium=repository&utm_campaign=9781838826581"><img src="Cover Image URL of the Book" alt="Book Name" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/eu/data/learn-grafana-7-0?utm_source=github&utm_medium=repository&utm_campaign=9781838826581"><img src="https://www.packtpub.com/media/catalog/product/cache/bf3310292d6e1b4ca15aeea773aca35e/9/7/9781838826581-original_36.jpeg" alt="Book Name" height="256px" align="right"></a>
 
 This is the code repository for Learn Grafana 7.0](https://www.packtpub.com/eu/data/learn-grafana-7-0?utm_source=github&utm_medium=repository&utm_campaign=9781838826581), published by Packt.
 
