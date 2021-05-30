@@ -76,7 +76,7 @@ def load_eq_data(db_host, db_port, db_name, input_file):
     create_database(db_host=db_host, db_port=db_port, db_name=db_name)
 
     url = f"http://{db_host}:{db_port}/write"
-    data = input_file.read()
+    data = input_file.read().encode('utf-8')
     response = requests.post(url, params=dict(db=db_name, precision="ms"), data=data)
     if response.status_code != requests.codes.no_content:
         raise Exception(f"load_eq_data: {response.status_code}:{response.reason}")
