@@ -52,6 +52,31 @@ With the following software and hardware list you can run all code files present
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781838826581_ColorImages.pdf)
 
+### Errata
+
+Chapter 06, Page 133 should read:
+
+  3. Build the Python container to run our scripts:
+  
+  ```sh
+      $ docker build --pull --tag python/ch6 .
+  ```
+  4. ...
+```sh
+    $ docker run --rm --network=host -v "$(PWD):/usr/src/app" \
+             --name python python/ch6 bin/weather.py \
+             --output data/wx.txt \
+             --stations KSFO,KDEN,KSTL,KJFK
+```
+  5. ...
+```sh
+    $ docker run --rm --network=host -v "$(PWD):/usr/src/app" \
+             --name python python/ch6 bin/weather.py \
+             --input data/wx.txt \
+             --db weatherdb
+```
+
+
 ### Related products <Other books you may enjoy>
 * Hands-On Infrastructure Monitoring with Prometheus [[Packt]](https://www.packtpub.com/eu/virtualization-and-cloud/hands-infrastructure-monitoring-prometheus?utm_source=github&utm_medium=repository&utm_campaign=9781789612349) [[Amazon]](https://www.amazon.com/dp/B07MT42315)
 
