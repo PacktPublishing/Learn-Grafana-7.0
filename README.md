@@ -76,6 +76,17 @@ Chapter 06, Page 133 should read:
              --db weatherdb
 ```
 
+Chapter 08, page 204 should include additional lines:
+
+To load the data into ElasticSearch, run the following command:
+``` sh
+% docker-compose run logstash logstash < data/Current_FY_Cases.csv
+```
+For Windows PowerShell, the command is:
+
+``` sh
+Get-Content .\data\Current_FY_Cases.csv | docker-compose run logstash logstash
+```
 
 ### Related products <Other books you may enjoy>
 * Hands-On Infrastructure Monitoring with Prometheus [[Packt]](https://www.packtpub.com/eu/virtualization-and-cloud/hands-infrastructure-monitoring-prometheus?utm_source=github&utm_medium=repository&utm_campaign=9781789612349) [[Amazon]](https://www.amazon.com/dp/B07MT42315)
