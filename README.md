@@ -75,7 +75,23 @@ Chapter 06, Page 133 should read:
              --input data/wx.txt \
              --db weatherdb
 ```
+---
+Chapter 06, page 157 should read:
 
+### Adding load_eq_data()
+The only significant differences in our file load subroutine, called `load_eq_data()` is the encoding of the data to accommodate Unicode (`UTF-8`) characters: 
+
+``` python
+    data = input_file.read().encode('utf-8')
+```
+
+and the specification of time precision in milliseconds (`ms`):
+
+``` python
+response = requests.post(url, params=dict(db=db_name, precision="ms"),
+data=data)
+```
+---
 Chapter 08, page 204 should include additional lines:
 
 To load the data into ElasticSearch, run the following command:
